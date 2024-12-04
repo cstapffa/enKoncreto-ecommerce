@@ -90,12 +90,6 @@ export class RequestsAPI {
       .catch(manejarErrores);
   }
 
-  static getProductosByType(tipoProducto) {
-    return fetch(obtenerUrl(`productos/${tipoProducto}`), { headers })
-      .then(procesarRespuesta)
-      .catch(manejarErrores);
-  }
-
   // post /pdto
   static postProducto(body) {
     return fetch(obtenerUrl("producto"), { method: "POST", headers, body })

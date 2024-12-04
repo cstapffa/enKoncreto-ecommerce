@@ -7,8 +7,6 @@ const schemaProducto = new Schema({
   precio: String,
   descripcion: String,
   img: String,
-  tags: Array,
-  color: Array,
   /* usuario: String, */
 });
 

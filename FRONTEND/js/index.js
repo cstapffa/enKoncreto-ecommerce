@@ -1,15 +1,17 @@
 import Producto from "./Models/Producto.js";
+import Taller from "./Models/Taller.js";
 import {
-  imprimir,
-  /*   obtenerValorInput,
+  imprimir, obtenerValorInput/* ,
   validarSesion,
   eventoClickCerrarSesion, */
 } from "./utils/helpers.js";
 import { RequestsAPI } from "./RequestsAPI.js";
 
+// CATALOGO DE PRODUCTOS
+// ------------------------------------------------------------------------------------------------------------------
 const cargarProductos = (data) => {
   console.log("Datos recibidos:", data);
-  imprimir("catalogo-error", "");
+  imprimir("catalogo-pdtos-error", "");
 
   const listadoProductos = data
     .map((producto) =>
@@ -26,17 +28,18 @@ const cargarProductos = (data) => {
     )
     .join("");
 
-  imprimir("catalogo", `${listadoProductos}`);
+  imprimir("catalogo-pdtos", `${listadoProductos}`);
 
-  document.querySelectorAll(".item-pdto").forEach((itemCatalogo) => {
-    itemCatalogo.addEventListener("click", () => {
-      document.location.replace(`detalle-producto.html?id=${itemCatalogo.id}`);
+  document.querySelectorAll(".item-pdto").forEach((itemCatalogoPdto) => {
+    itemCatalogoPdto.addEventListener("click", () => {
+      document.location.replace(`detalle-pdto.html?id=${itemCatalogoPdto.id}`);
     });
   });
 };
 
-const mostrarError = (error) => {
-  imprimir("catalogo-error", error);
+
+const mostrarErrorPdtos = (error) => {
+  imprimir("catalogo-pdtos-error", error);
 };
 
 RequestsAPI.getProductos()
@@ -47,16 +50,104 @@ RequestsAPI.getProductos()
       cargarProductos(data);
     }
   })
-  .catch(mostrarError);
+  .catch(mostrarErrorPdtos);
 
-/* RequestsAPI.getUsuario()
-  .then((usuario) => {
-    const { nombre, apellido } = usuario;
-    const usuarioLogueado = document.querySelector("#usuario-logueado");
-    if (usuarioLogueado && nombre && apellido) {
-      usuarioLogueado.textContent = `${nombre} ${apellido}`;
+// NUEVO
+document.querySelector("#btn-nuevo-pdto").addEventListener("click", () => {
+  const nombre = obtenerValorInput("nuevo-nombre-pdto");
+  const cateoria = obtenerValorInput("nueva-categoria-pdto");
+  const precio = obtenerValorInput("nuevo-precio-pdto");
+  const descripcion = obtenerValorInput("nueva-descripcion-pdto");
+  const img = obtenerValorInput("nueva-img-pdto");
+
+  if (!nombre || !cateoria || !precio || !descripcion || !img) {
+    imprimir("nuevo-pdto-error", "Por favor, complete todos los campos.");
+    return;
+  } else {
+    console.log("Producto creado con éxito");
+  }
+
+  const body = JSON.stringify({ nombre, cateoria, precio, descripcion, img });
+
+  RequestsAPI.postProducto(body)
+    .then(() => {
+      document.location.replace("index.html");
+    })
+    .catch((error) => {
+      imprimir("nuevo-pdto-error", error);
+    });
+});
+// ------------------------------------------------------------------------------------------------------------------
+
+
+// CATALOGO DE TALLERES
+// ------------------------------------------------------------------------------------------------------------------
+const cargarTalleres = (data) => {
+  console.log("Datos recibidos:", data);
+  imprimir("catalogo-talleres-error", "");
+
+  const listadoTalleres = data
+    .map((taller) =>
+      new Taller(
+        taller.id,
+        taller.nombre,
+        taller.precio,
+        taller.descripcion,
+        taller.img,
+        taller.fecha,
+        taller.hora
+      ).mostrarTallerEnCatalogo()
+    )
+    .join("");
+
+  imprimir("catalogo-talleres", `${listadoTalleres}`);
+
+  document.querySelectorAll(".item-taller").forEach((itemCatalogoTaller) => {
+    itemCatalogoTaller.addEventListener("click", () => {
+      document.location.replace(`detalle-taller.html?id=${itemCatalogoTaller.id}`);
+    });
+  });
+};
+
+
+const mostrarErrorTalleres = (error) => {
+  imprimir("catalogo-talleres-error", error);
+};
+
+RequestsAPI.getTalleres()
+  .then((data) => {
+    if (data.length === 0) {
+      ("no hay talleres que mostrar");
+    } else {
+      cargarTalleres(data);
     }
   })
-  .catch((error) => {
-    console.error("Error al obtener la información del usuario:", error);
-  }); */
+  .catch(mostrarErrorTalleres);
+
+  // NUEVO
+document.querySelector("#btn-nuevo-taller").addEventListener("click", () => {
+  const nombre = obtenerValorInput("nuevo-nombre-taller");
+  const precio = obtenerValorInput("nuevo-precio-taller");
+  const descripcion = obtenerValorInput("nueva-descripcion-taller");
+  const img = obtenerValorInput("nueva-img-taller");
+  const fecha = obtenerValorInput("nueva-fecha-taller");
+  const hora = obtenerValorInput("nueva-hora-taller");
+
+  if (!nombre || !precio || !descripcion || !img || !fecha || !hora) {
+    imprimir("nuevo-taller-error", "Por favor, complete todos los campos.");
+    return;
+  } else {
+    console.log("Taller creado con éxito");
+  }
+
+  const body = JSON.stringify({ nombre, precio, descripcion, img, fecha, hora });
+
+  RequestsAPI.postTaller(body)
+    .then(() => {
+      document.location.replace("index.html");
+    })
+    .catch((error) => {
+      imprimir("nuevo-taller-error", error);
+    });
+});
+// ------------------------------------------------------------------------------------------------------------------

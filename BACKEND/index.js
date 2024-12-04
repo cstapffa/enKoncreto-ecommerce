@@ -15,7 +15,7 @@ import { postUsuario } from "./controllers/postUsuario.js";
 import { loginUsuario } from "./controllers/loginUsuario.js";
 import { getUsuario } from "./controllers/getUsuario.js";
 import { logoutUsuario } from "./controllers/logoutUsuario.js";
- import { getTalleres } from "./controllers/getTalleres.js";
+import { getTalleres } from "./controllers/getTalleres.js";
 import { getTallerById } from "./controllers/getTallerById.js";
 import { postTaller } from "./controllers/postTaller.js";
 import { putTaller } from "./controllers/putTaller.js";
@@ -43,7 +43,6 @@ app.post("/login", loginUsuario);
 // /* Productos */
 app.get("/productos", getProductos);
 app.get("/producto/:id", getProductoById);
-/*app.get("/productos/:type", getProductosByType); */
 
 // /* Talleres */
 app.get("/talleres", getTalleres);

@@ -5,8 +5,6 @@ export default class Producto {
   precio;
   descripcion;
   img;
-  tags;
-  color;
 
   constructor(
     id = 0,
@@ -15,8 +13,6 @@ export default class Producto {
     precio = "",
     descripcion = "",
     img = "",
-    tags = [],
-    color = []
   ) {
     this.id = id;
     this.nombre = nombre;
@@ -24,8 +20,6 @@ export default class Producto {
     this.precio = precio;
     this.descripcion = descripcion;
     this.img = img;
-    this.tags = tags;
-    this.color = color;
   }
 
   mostrarPdtoEnCatalogo() {
@@ -33,18 +27,20 @@ export default class Producto {
       <article id="${this.id}" class="item-pdto">
         <img src="${this.img}" alt="${this.nombre}" title="${this.nombre}"/>
         <h3>${this.nombre}</h3>
-        <p>${this.precio}</p>
+        <p>$${this.precio}</p>
       </article>
     `;
   }
 
-  mostrarPdtoDetalle() {
+  mostrarDetalle() {
     return `
       <div id="${this.id}">
         <img src="${this.img}" alt="${this.nombre}" title="${this.nombre}"/>
         <h3>${this.nombre}</h3>
-        <p>${this.precio}</p>
+        <p>$${this.precio}</p>
         <p>${this.descripcion}</p>
+        <p>${this.categoria}</p>
+        <p>${this.tags}</p>
         <p>${this.color}</p>
       </div>
     `;
