@@ -1,21 +1,16 @@
-// obtener url es una función que recibe una ruta y retorna la url completa de la ruta que se le pase.
 const obtenerUrl = (ruta) => `${RequestsAPI.urlBaseBackend}/${ruta}`;
 
-// headers es un objeto que contiene las cabeceras que se enviarán en las peticiones fetch.
 const headers = {
   Accept: "application/json",
   "Content-Type": "application/json",
 };
 
-// token es una constante que contiene el token de la sesión que se obtiene del sessionStorage.
 const token = sessionStorage.getItem("session");
 
-// Si token existe, se añade al objeto headers la cabecera authorization con el valor del token.
 if (token) {
   headers.authorization = token;
 }
 
-// procesarRespuesta es una función que recibe una respuesta y retorna la respuesta en formato json. Si la respuesta contiene un error, se lanza una excepción con el mensaje de error.
 const procesarRespuesta = (res) => {
   return res.json().then((data) => {
     if (data.error) {
@@ -26,29 +21,51 @@ const procesarRespuesta = (res) => {
   });
 };
 
-// manejarErrores es una función que recibe un error y muestra un mensaje de error en la consola. Luego, lanza una excepción con el mensaje de error.
 const manejarErrores = (error = new Error("Error desconocido")) => {
   console.error("Ha ocurrido un error:", error.message);
   throw error.message;
 };
 
-// RequestsAPI es una clase que contiene las funciones que se encargan de realizar las peticiones fetch al backend de manera ordenada y centralizada.
 export class RequestsAPI {
   static urlBaseBackend = "http://localhost:3000";
 
   // post /login
-  static login(email, password) {
+  /* static login(email, password) {
     const body = JSON.stringify({ email, password });
 
     return fetch(obtenerUrl("login"), { method: "POST", body, headers })
       .then(procesarRespuesta)
       .catch(manejarErrores);
+  } */
+  static login(email, password) {
+    const body = JSON.stringify({ email, password });
+
+    return fetch(obtenerUrl("login"), { method: "POST", body, headers })
+      .then(procesarRespuesta)
+      .then((data) => {
+        if (data.session) {
+          sessionStorage.setItem("session", data.session);
+          localStorage.setItem("usuario", JSON.stringify(data.user));
+        }
+        return data;
+      })
+      .catch(manejarErrores);
   }
 
   // post /logout
+  /* static logout() {
+    return fetch(obtenerUrl("logout"), { method: "POST", headers })
+      .then(procesarRespuesta)
+      .catch(manejarErrores);
+  } */
   static logout() {
     return fetch(obtenerUrl("logout"), { method: "POST", headers })
       .then(procesarRespuesta)
+      .then((data) => {
+        sessionStorage.removeItem("session");
+        localStorage.removeItem("usuario");
+        return data;
+      })
       .catch(manejarErrores);
   }
 
@@ -105,8 +122,8 @@ export class RequestsAPI {
     precio,
     descripcion,
     img,
-    tags,
-    color
+    stock,
+    oferta
   ) {
     const body = JSON.stringify({
       nombre,
@@ -114,8 +131,8 @@ export class RequestsAPI {
       precio,
       descripcion,
       img,
-      tags,
-      color,
+      stock,
+      oferta,
     });
     return fetch(obtenerUrl(`producto/${idProducto}`), {
       method: "PUT",
@@ -171,7 +188,9 @@ export class RequestsAPI {
     descripcion,
     img,
     fecha,
-    hora
+    hora,
+    cupos,
+    disponibles
   ) {
     const body = JSON.stringify({
       nombre,
@@ -180,6 +199,8 @@ export class RequestsAPI {
       img,
       fecha,
       hora,
+      cupos,
+      disponibles,
     });
     return fetch(obtenerUrl(`taller/${idTaller}`), {
       method: "PUT",

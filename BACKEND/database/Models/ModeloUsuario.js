@@ -8,6 +8,7 @@ const schemaUsuario = new Schema({
   email: { type: String, unique: true },
   password: String,
   session: String,
+  admin: { type: Boolean, default: false },
 });
 
 if (mongoose.models.Usuario) {

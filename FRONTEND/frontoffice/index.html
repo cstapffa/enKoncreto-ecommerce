@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Camila Stapff" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Concretamos Ideas desde 2020 | Productos de Bazar y Deco Exclusivos."
+    />
+    <meta
+      name="keywords"
+      content="concreto, bazar, decoración, talleres, moldes, microcemento, concreto liviano, concreto macizo, muebles, mesadas, bachas, a medida"
+    />
+    <meta name="generator" content="Visual Studio Code" />
+    <title>enKoncreto</title>
+
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/dpushmfs0/image/upload/v1733532594/favicon_mohcvb.png" />
+    <!-- CSS -->
+    <!-- Bootstrap -->
+  </head>
+
+  <body>
+    <main>
+      <h1>enKoncreto</h1>
+
+      <div>
+        <h2>Productos</h2>
+        <div>
+          <div id="catalogo-pdtos"></div>
+          <div id="catalogo-pdtos-error"></div>
+        </div>
+
+        <form>
+          <h2>Nuevo Producto</h2>
+          <div>
+            <label for="nuevo-nombre-pdto">Nombre:</label>
+            <input type="text" id="nuevo-nombre-pdto" />
+  
+            <label for="nueva-categoria-pdto">Categoría:</label>
+            <select id="nueva-categoria-pdto">
+              <option value="deco">Decoración</option>
+              <option value="moldes">Moldes</option>
+              <option value="bachas">Bachas</option>
+              <option value="ilu">Iluminación</option>
+            </select>
+  
+            <label for="nuevo-precio-pdto">Precio:</label>
+            <input type="number" id="nuevo-precio-pdto" />
+  
+            <label for="nueva-descripcion-pdto">Descripción:</label>
+            <textarea name="descripcion" id="nueva-descripcion-pdto"></textarea>
+  
+            <label for="nueva-img-pdto">Imagen:</label>
+            <input type="text" id="nueva-img-pdto" />
+          </div>
+  
+          <div id="nuevo-pdto-error" class="error"></div>
+          <input type="button" id="btn-nuevo-pdto" value="Crear" />
+        </form>
+      </div>
+
+      <div>
+        <h2>Talleres</h2>
+        <div>
+          <div id="catalogo-talleres"></div>
+          <div id="catalogo-talleres-error"></div>
+        </div>
+      </div>
+
+      <form>
+        <h2>Nuevo Taller</h2>
+        <div>
+          <label for="nuevo-nombre-taller">Nombre:</label>
+          <input type="text" id="nuevo-nombre-taller" />
+
+          <label for="nuevo-precio-taller">Precio:</label>
+          <input type="number" id="nuevo-precio-taller" />
+
+          <label for="nueva-descripcion-taller">Descripción:</label>
+          <textarea name="descripcion" id="nueva-descripcion-taller"></textarea>
+
+          <label for="nueva-img-taller">Imagen:</label>
+          <input type="text" id="nueva-img-taller" />
+
+          <label for="nueva-fecha-taller">Fecha:</label>
+          <input type="date" id="nueva-fecha-taller" />
+
+          <label for="nueva-hora-taller">Hora:</label>
+          <input type="time" id="nueva-hora-taller" />
+        </div>
+
+        <div id="nuevo-taller-error" class="error"></div>
+        <input type="button" id="btn-nuevo-taller" value="Crear" />
+      </form>
+    </main>
+
+    <!-- JS -->
+    <script src="../js/frontoffice/index.js" type="module"></script>
+  </body>
+</html>

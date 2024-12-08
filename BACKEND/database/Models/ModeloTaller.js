@@ -8,6 +8,8 @@ const schemaTaller = new Schema({
   img: String,
   fecha: String,
   hora: String,
+  cupos:  Number,
+  disponibles: Number, 
   /* usuario: String, */
 });
 
