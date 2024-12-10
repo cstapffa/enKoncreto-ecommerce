@@ -1,12 +1,12 @@
 {
-  "name": "frontend",
+  "name": "enkoncreto",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "sass --watch ./sass/style.scss:./css/style.css --style compressed"
+    "watch": "sass --watch scss/estilos.scss css/estilos.min.css --style compressed"
   },
-  "author": "",
+  "author": "Camila Stapff",
   "license": "ISC",
   "description": "",
   "dependencies": {

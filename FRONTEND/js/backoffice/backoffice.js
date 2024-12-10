@@ -2,20 +2,22 @@ import Producto from "../Models/Producto.js";
 import Taller from "../Models/Taller.js";
 import {
   imprimir,
-  obtenerValorInput ,
-  validarSesion,
-  eventoClickCerrarSesion,
+  obtenerValorInput,
+  /*   validarSesion,*/
+  validarAccesoBackoffice,
+  eventoClickCerrarSesion, 
 } from "../utils/helpers.js";
 import { RequestsAPI } from "../RequestsAPI.js";
 
-/* validarSesion();
-eventoClickCerrarSesion(); */
+/* validarSesion();*/
+validarAccesoBackoffice();
+eventoClickCerrarSesion(); 
 
 // CATALOGO DE PRODUCTOS
 // ------------------------------------------------------------------------------------------------------------------
 const cargarProductos = (data) => {
   console.log("Datos recibidos:", data);
-  imprimir("catalogo-pdtos-error", "");
+  imprimir("catalogo-pdtos-error-back", "");
 
   const listadoProductos = data
     .map((producto) =>
@@ -32,7 +34,7 @@ const cargarProductos = (data) => {
     )
     .join("");
 
-  imprimir("catalogo-pdtos", `${listadoProductos}`);
+  imprimir("catalogo-pdtos-back", `${listadoProductos}`);
 
   document.querySelectorAll(".item-pdto").forEach((itemCatalogoPdto) => {
     itemCatalogoPdto.addEventListener("click", () => {
@@ -42,7 +44,7 @@ const cargarProductos = (data) => {
 };
 
 const mostrarErrorPdtos = (error) => {
-  imprimir("catalogo-pdtos-error", error);
+  imprimir("catalogo-pdtos-error-back", error);
 };
 
 RequestsAPI.getProductos()
@@ -86,7 +88,7 @@ document.querySelector("#btn-nuevo-pdto").addEventListener("click", () => {
 // ------------------------------------------------------------------------------------------------------------------
 const cargarTalleres = (data) => {
   console.log("Datos recibidos:", data);
-  imprimir("catalogo-talleres-error", "");
+  imprimir("catalogo-talleres-error-back", "");
 
   const listadoTalleres = data
     .map((taller) =>
@@ -104,7 +106,7 @@ const cargarTalleres = (data) => {
     )
     .join("");
 
-  imprimir("catalogo-talleres", `${listadoTalleres}`);
+  imprimir("catalogo-talleres-back", `${listadoTalleres}`);
 
   document.querySelectorAll(".item-taller").forEach((itemCatalogoTaller) => {
     itemCatalogoTaller.addEventListener("click", () => {
@@ -116,7 +118,7 @@ const cargarTalleres = (data) => {
 };
 
 const mostrarErrorTalleres = (error) => {
-  imprimir("catalogo-talleres-error", error);
+  imprimir("catalogo-talleres-error-back", error);
 };
 
 RequestsAPI.getTalleres()

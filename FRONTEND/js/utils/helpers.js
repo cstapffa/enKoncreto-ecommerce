@@ -1,6 +1,13 @@
 import { RequestsAPI } from "../RequestsAPI.js";
 
-// function para obtener el valor de un input. Recibe el id del input y retorna el valor del input.
+export const ocultar = (etiquetaId) => {
+  document.querySelector(etiquetaId).style.display = "none";
+};
+
+export const mostrar = (etiquetaId) => {
+  document.querySelector(etiquetaId).style.display = "block";
+};
+
 export const obtenerValorInput = (idInput) => {
   const inputElement = document.getElementById(idInput);
   if (inputElement) {
@@ -10,7 +17,6 @@ export const obtenerValorInput = (idInput) => {
   }
 };
 
-// function para imprimir contenido en un elemento del DOM. Recibe el id del elemento y el contenido a imprimir.
 export const imprimir = (elemento, contenido) => {
   const ele = document.querySelector(`#${elemento}`);
   if (ele) {
@@ -20,8 +26,7 @@ export const imprimir = (elemento, contenido) => {
   }
 };
 
-// funcion para validar sesion de usuario
-export const validarSesion = () => {
+/* export const validarSesion = () => {
   // obtenemos el valor de la sesion del sessionStorage
   const usuarioLogueado = sessionStorage.getItem("session");
   // verificamos si estamos en la pagina de login o register
@@ -40,14 +45,36 @@ export const validarSesion = () => {
       document.location.replace("login.html");
     }
   }
+}; */
+
+export const validarAccesoBackoffice = () => {
+  const usuarioLogueado = JSON.parse(sessionStorage.getItem("usuario"));
+  const usuarioEsAdmin = usuarioLogueado?.admin;
+  const estaEnBackoffice = window.location.pathname.includes("/backoffice/");
+
+  if (estaEnBackoffice) {
+    if (!usuarioLogueado) {
+      alert("Debes iniciar sesión para acceder al backoffice.");
+      document.location.replace("/login.html");
+    } else if (!usuarioEsAdmin) {
+      alert(
+        "ACCESO DENEGADO. Solo los administradores pueden acceder al backoffice."
+      );
+      document.location.replace("/index.html");
+    }
+  }
 };
 
-// function para agregar evento click al boton de cerrar sesion
 export const eventoClickCerrarSesion = () => {
   document.querySelector("#boton-logout").addEventListener("click", () => {
     sessionStorage.removeItem("session");
-    RequestsAPI.logout().then(() => {
-      document.location.replace("login.html");
-    });
+    sessionStorage.removeItem("usuario");
+    RequestsAPI.logout()
+      .then(() => {
+        document.location.replace("index.html");
+      })
+      .catch((error) => {
+        alert(error);
+      });
   });
 };

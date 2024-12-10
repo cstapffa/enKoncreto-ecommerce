@@ -13,11 +13,23 @@
       content="concreto, bazar, decoración, talleres, moldes, microcemento, concreto liviano, concreto macizo, muebles, mesadas, bachas, a medida"
     />
     <meta name="generator" content="Visual Studio Code" />
-    <title>enKoncreto</title>
+    <title>Backoffice | EnKoncreto</title>
 
-    <link rel="icon" type="image/png" href="https://res.cloudinary.com/dpushmfs0/image/upload/v1733532594/favicon_mohcvb.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://res.cloudinary.com/dpushmfs0/image/upload/v1733532594/favicon_mohcvb.png"
+    />
     <!-- CSS -->
-    <!-- Bootstrap -->
+    <link rel="stylesheet" href="../css/estilos.min.css" type="text/css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Abel&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
@@ -27,16 +39,16 @@
       <div>
         <h2>Productos</h2>
         <div>
-          <div id="catalogo-pdtos"></div>
-          <div id="catalogo-pdtos-error"></div>
+          <div id="catalogo-pdtos-back"></div>
+          <div id="catalogo-pdtos-error-back"></div>
         </div>
 
-        <form>
+        <form class="form-back">
           <h2>Nuevo Producto</h2>
           <div>
             <label for="nuevo-nombre-pdto">Nombre:</label>
             <input type="text" id="nuevo-nombre-pdto" />
-  
+
             <label for="nueva-categoria-pdto">Categoría:</label>
             <select id="nueva-categoria-pdto">
               <option value="deco">Decoración</option>
@@ -44,17 +56,17 @@
               <option value="bachas">Bachas</option>
               <option value="ilu">Iluminación</option>
             </select>
-  
+
             <label for="nuevo-precio-pdto">Precio:</label>
             <input type="number" id="nuevo-precio-pdto" />
-  
+
             <label for="nueva-descripcion-pdto">Descripción:</label>
             <textarea name="descripcion" id="nueva-descripcion-pdto"></textarea>
-  
+
             <label for="nueva-img-pdto">Imagen:</label>
             <input type="text" id="nueva-img-pdto" />
           </div>
-  
+
           <div id="nuevo-pdto-error" class="error"></div>
           <input type="button" id="btn-nuevo-pdto" value="Crear" />
         </form>
@@ -63,12 +75,12 @@
       <div>
         <h2>Talleres</h2>
         <div>
-          <div id="catalogo-talleres"></div>
-          <div id="catalogo-talleres-error"></div>
+          <div id="catalogo-talleres-back"></div>
+          <div id="catalogo-talleres-error-back"></div>
         </div>
       </div>
 
-      <form>
+      <form class="form-back">
         <h2>Nuevo Taller</h2>
         <div>
           <label for="nuevo-nombre-taller">Nombre:</label>
@@ -93,9 +105,12 @@
         <div id="nuevo-taller-error" class="error"></div>
         <input type="button" id="btn-nuevo-taller" value="Crear" />
       </form>
+
+      <button id="boton-logout" class="btn-back">Logout</button>
     </main>
 
     <!-- JS -->
-    <script src="../js/frontoffice/index.js" type="module"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/backoffice/backoffice.js" type="module"></script>
   </body>
 </html>

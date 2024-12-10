@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Camila Stapff" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Concretamos Ideas desde 2020 | Productos de Bazar y Deco Exclusivos."
+    />
+    <meta
+      name="keywords"
+      content="concreto, bazar, decoración, talleres, moldes, microcemento, concreto liviano, concreto macizo, muebles, mesadas, bachas, a medida"
+    />
+    <meta name="generator" content="Visual Studio Code" />
+    <title>Registro | EnKoncreto</title>
+
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://res.cloudinary.com/dpushmfs0/image/upload/v1733532594/favicon_mohcvb.png"
+    />
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/estilos.min.css" type="text/css"/>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Abel&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <main class="main-form">
+      <form>
+        <div>
+          <figure>
+            <img src="https://res.cloudinary.com/dpushmfs0/image/upload/v1733532594/isotipo_bwghhu.png" alt="EnKoncreto">
+          </figure>
+          <label for="form-register-nombre">Nombre:</label>
+          <input type="text" id="form-register-nombre" required />
+
+          <label for="form-register-apellido">Apellido:</label>
+          <input type="text" id="form-register-apellido" required />
+
+          <label for="form-register-email">Email:</label>
+          <input type="text" id="form-register-email" required />
+
+          <label for="form-register-password">Password:</label>
+          <input type="password" id="form-register-password" required />
+
+        <div id="form-register-error" class="error"></div>
+
+          <button id="boton-register-submit" class="btn btn-lg btn-primary">Registrar</button>
+          <p>
+            ¿Ya tenés cuenta? <a href="login.html" class="btn-registro">
+              Logueate</a
+            >
+          </p>
+        </div>
+      </form>
+    </main>
+
+    <!-- JS -->
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js/register.js" type="module"></script>
+  </body>
+</html>

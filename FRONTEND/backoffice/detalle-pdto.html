@@ -25,16 +25,24 @@
       <h1>enKoncreto</h1>
 
       <div>
-        <div id="detalle-taller"></div>
+        <div id="detalle-pdto"></div>
         <div id="detalle-error" class="error"></div>
         <input type="button" id="btn-eliminar" value="Eliminar" />
       </div>
 
       <form>
-        <h2>Editar Taller</h2>
+        <h2>Editar Producto</h2>
         <div>
           <label for="editar-nombre">Nombre:</label>
           <input type="text" id="editar-nombre" />
+
+          <label for="editar-categoria">Categoría:</label>
+          <select id="editar-categoria">
+            <option value="deco">Decoración</option>
+            <option value="moldes">Moldes</option>
+            <option value="bachas">Bachas</option>
+            <option value="ilu">Iluminación</option>
+          </select>
 
           <label for="editar-precio">Precio:</label>
           <input type="number" id="editar-precio" />
@@ -44,24 +52,20 @@
 
           <label for="editar-img">Imagen:</label>
           <input type="text" id="editar-img" />
-
-          <label for="editar-fecha">Fecha:</label>
-          <input type="date" id="editar-fecha" />
-
-          <label for="editar-hora">Hora:</label>
-          <input type="time" id="editar-hora" />
         </div>
 
-        <div id="editar-taller-error" class="error"></div>
-        <input type="button" id="btn-actualizar-taller" value="Actualizar" />
+        <div id="editar-pdto-error" class="error"></div>
+        <input type="button" id="btn-actualizar-pdto" value="Actualizar" />
       </form>
 
-      <button>
-        <a href="index.html" class="btn-back">Regresar</a>
-      </button>
+      
+        
+        <button>
+          <a href="index.html" class="btn-back">Regresar</a>
+        </button>
     </main>
 
     <!-- JS -->
-    <script src="../js/frontoffice/detalle-taller.js" type="module"></script>
+    <script src="../js/backoffice/detalle-pdto.js" type="module"></script>
   </body>
 </html>

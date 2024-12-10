@@ -30,42 +30,29 @@ export class RequestsAPI {
   static urlBaseBackend = "http://localhost:3000";
 
   // post /login
-  /* static login(email, password) {
-    const body = JSON.stringify({ email, password });
-
-    return fetch(obtenerUrl("login"), { method: "POST", body, headers })
-      .then(procesarRespuesta)
-      .catch(manejarErrores);
-  } */
   static login(email, password) {
     const body = JSON.stringify({ email, password });
 
     return fetch(obtenerUrl("login"), { method: "POST", body, headers })
       .then(procesarRespuesta)
-      .then((data) => {
+      /* .then((data) => {
         if (data.session) {
           sessionStorage.setItem("session", data.session);
           localStorage.setItem("usuario", JSON.stringify(data.user));
         }
         return data;
-      })
+      }) */
       .catch(manejarErrores);
   }
 
-  // post /logout
-  /* static logout() {
-    return fetch(obtenerUrl("logout"), { method: "POST", headers })
-      .then(procesarRespuesta)
-      .catch(manejarErrores);
-  } */
   static logout() {
     return fetch(obtenerUrl("logout"), { method: "POST", headers })
       .then(procesarRespuesta)
-      .then((data) => {
+      /* .then((data) => {
         sessionStorage.removeItem("session");
         localStorage.removeItem("usuario");
         return data;
-      })
+      }) */
       .catch(manejarErrores);
   }
 

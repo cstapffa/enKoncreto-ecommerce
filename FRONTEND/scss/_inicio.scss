@@ -1,0 +1,59 @@
+.carousel-hero {
+  height: 60vh;
+  .carousel-indicators {
+    bottom: -75px;
+    button {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+  }
+  .carousel-item {
+    border-bottom: 0.3em solid $primary;
+  }
+  img {
+    width: 100%;
+  }
+  .carousel-caption {
+    color: $black;
+  }
+}
+
+#categorias-home {
+  margin-top: 140px;
+  .home-card {
+    width: 250px;
+    height: 250px;
+    background-image: url(https://res.cloudinary.com/dpushmfs0/image/upload/v1733790308/img-1_agbjgl.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 10px;
+    border: white 0.5em solid;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h2 {
+      color: $white;
+      text-transform: uppercase;
+    }
+  }
+  .home-card:nth-child(2) {
+    background-image: url(https://res.cloudinary.com/dpushmfs0/image/upload/v1733790307/img_pp6bz0.png);
+  }
+  .home-card:nth-child(3) {
+    background-image: url(https://res.cloudinary.com/dpushmfs0/image/upload/v1733790309/img-2_opdncq.png);
+  }
+  .home-card:nth-child(4) {
+    background-image: url(https://res.cloudinary.com/dpushmfs0/image/upload/v1733790312/img-3_jvetta.png);
+  }
+  .home-card:hover {
+    box-shadow: 0px 100px 80px rgba(0, 0, 0, 0.07),
+      0px 41.7776px 33.4221px rgba(0, 0, 0, 0.0503198),
+      0px 22.3363px 17.869px rgba(0, 0, 0, 0.0417275),
+      0px 12.5216px 10.0172px rgba(0, 0, 0, 0.035),
+      0px 6.6501px 5.32008px rgba(0, 0, 0, 0.0282725),
+      0px 2.76726px 2.21381px rgba(0, 0, 0, 0.0196802);
+    cursor: pointer;
+  }
+}
