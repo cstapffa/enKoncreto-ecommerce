@@ -32,6 +32,7 @@
   </head>
 
   <body>
+    <!-- header -->
     <header class="fixed-top">
       <div class="container d-flex justify-content-between align-items-center">
         <a href="#">
@@ -83,25 +84,25 @@
         </nav>
 
         <div class="icons-navbar d-none d-md-flex justify-content-between">
-          <div id="searchIcon">
+          <div id="searchIcon" class="header-icon">
             <img
               src="https://res.cloudinary.com/dpushmfs0/image/upload/v1733773636/Magnifier_uydgl1.png"
               alt="Buscador"
             />
           </div>
-          <div id="heartIcon">
+          <div id="heartIcon" class="header-icon">
             <img
               src="https://res.cloudinary.com/dpushmfs0/image/upload/v1733774232/Heart_nutafh.png"
               alt="Favoritos"
             />
           </div>
-          <div id="cartIcon">
+          <div id="cartIcon" class="header-icon">
             <img
               src="https://res.cloudinary.com/dpushmfs0/image/upload/v1733773636/Cart_m5owg4.png"
               alt="Carrito"
             />
           </div>
-          <div id="profileIcon">
+          <div id="profileIcon" class="header-icon">
             <img
               src="https://res.cloudinary.com/dpushmfs0/image/upload/v1733773636/User_rlodsz.png"
               alt="Perfil"
@@ -140,7 +141,7 @@
       <div id="menu-perfil" class="menu-lado">
         <h2>Perfil</h2>
         <div id="mi-perfil"></div>
-        <a href="backoffice/backoffice.html">Backoffice</a>
+        <a href="backoffice/dashboard.html">Funciones de Administrador</a>
         <a href="login.html" class="btn btn-lg btn-primary">Login</a>
         <input
           type="button"
@@ -192,7 +193,7 @@
                   Trabajamos contigo para crear muebles únicos y funcionales que se adapten a tu estilo y necesidades.
                 </p>
                 <p>
-                  <a class="btn btn-lg btn-primary btn-hero" href="productos.html">Solicitar Cotización</a>
+                  <a class="btn btn-lg btn-primary" href="productos.html">Solicitar Cotización</a>
                 </p>
               </div>
             </div>
@@ -205,7 +206,7 @@
                 <p>
                   Explora nuestra colección de piezas decorativas de concreto diseñadas para realzar cualquier espacio.
                 </p>
-                  <a class="btn btn-lg btn-primary btn-hero" href="productos.html">Ver Colecciones</a>
+                  <a class="btn btn-lg btn-primary" href="productos.html">Ver Colecciones</a>
               </div>
             </div>
           </div>
@@ -218,7 +219,7 @@
                   Participa en nuestros talleres y domina técnicas de diseño con concreto para crear tus propias piezas.
                 </p>
                 <p>
-                  <a class="btn btn-lg btn-primary btn-hero" href="talleres.html">Inscríbete</a>
+                  <a class="btn btn-lg btn-primary" href="talleres.html">Inscríbete</a>
                 </p>
               </div>
             </div>
@@ -244,18 +245,48 @@
         </button>
       </div>
 
-      <section id="categorias-home" class="container">
-        <div class="row d-flex justify-content-around">
-          <div class="col col-md-3 home-card"><h2>Decoración</h2></div>
-          <div class="col col-md-3 home-card"><h2>Talleres</h2></div>
-          <div class="col col-md-3 home-card"><h2>Personalizado</h2></div>
-          <div class="col col-md-3 home-card"><h2>Bachas</h2></div>
+      <!-- CATEGORIAS -->
+      <section id="categorias-home-dsk" class="container d-none d-lg-block ">
+        <div class="d-flex justify-content-around">
+          <div class="home-category-card"><h2>Decoración</h2></div>
+          <a href="talleres.html" class="home-category-card">
+            <div ><h2>Talleres</h2></div>
+          </a>
+          <a href="personalizado.html" class="home-category-card">
+            <div><h2>Personalizado</h2></div>
+          </a>
+          <div class="home-category-card"><h2>Bachas</h2></div>
         </div>
       </section>
+      <section id="categorias-home-mbl" class="container d-block d-lg-none"></section>
+    
+    <!-- Próximo Taller -->
+    <section id="proximo-taller" class="container">
+      <div class="row featurette">
+      <article class="col-md-6 order-md-2">
+        <h2 class="featurette-heading fw-normal lh-1">PRÓXIMO TALLER</h2>
+        <h3>nombre</h3>
+        <p>descripcion</p>
+        <p>fecha y hora</p>
+        <p>precio</p>
+        <div class="d-flex">
+          <button class="btn btn-primary">¡Inscribite YA!</button>
+          <button class="btn btn-secondary">Ver Detalles</button>
+        </div>
+      </article>
+      <figure class="col-md-6 order-md-1 d-flex">
+        <img src="" alt="">
+      </figure>
+    </div>
+    </section>
+
+    <section>
+
+    </section>
     </main>
 
-    <!-- FOOTER -->
-    <footer class="bg-primary">
+    <!-- footer -->
+    <footer>
       ldflfm
     </footer>
 

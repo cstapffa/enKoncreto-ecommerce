@@ -17,13 +17,17 @@
   .carousel-caption {
     color: $black;
   }
+  .btn-lg {
+    padding: 20px 40px;
+    border-radius: 7px;
+  }
 }
 
-#categorias-home {
-  margin-top: 140px;
-  .home-card {
-    width: 250px;
-    height: 250px;
+#categorias-home-dsk {
+  margin-top: 100px;
+  .home-category-card {
+    width: 275px;
+    height: 275px;
     background-image: url(https://res.cloudinary.com/dpushmfs0/image/upload/v1733790308/img-1_agbjgl.png);
     background-size: cover;
     background-position: center;
@@ -38,16 +42,16 @@
       text-transform: uppercase;
     }
   }
-  .home-card:nth-child(2) {
+  .home-category-card:nth-child(2) {
     background-image: url(https://res.cloudinary.com/dpushmfs0/image/upload/v1733790307/img_pp6bz0.png);
   }
-  .home-card:nth-child(3) {
+  .home-category-card:nth-child(3) {
     background-image: url(https://res.cloudinary.com/dpushmfs0/image/upload/v1733790309/img-2_opdncq.png);
   }
-  .home-card:nth-child(4) {
+  .home-category-card:nth-child(4) {
     background-image: url(https://res.cloudinary.com/dpushmfs0/image/upload/v1733790312/img-3_jvetta.png);
   }
-  .home-card:hover {
+  .home-category-card:hover {
     box-shadow: 0px 100px 80px rgba(0, 0, 0, 0.07),
       0px 41.7776px 33.4221px rgba(0, 0, 0, 0.0503198),
       0px 22.3363px 17.869px rgba(0, 0, 0, 0.0417275),
@@ -57,3 +61,4 @@
     cursor: pointer;
   }
 }
+

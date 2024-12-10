@@ -13,6 +13,7 @@ body {
   color: $black;
 }
 
+/* Cajas */
 header {
   background-color: $white;
   position: relative;
@@ -22,6 +23,9 @@ header {
   .logo,
   .icons-navbar {
     width: 150px;
+    .header-icon {
+      cursor: pointer;
+    }
   }
   #menu-buscador {
     position: absolute;
@@ -62,8 +66,20 @@ main {
   margin-top: 60px;
 }
 
-section{
-  margin: 50px 0;
+section {
+  padding: 50px 0;
+  border-bottom: 1px solid $light;
+}
+
+footer {
+  background-color: $primary;
+  padding: 50px 0;
+}
+
+/* Textos */
+h3 {
+  font-family: "Open Sans", sans-serif;
+  color: $primary-dark;
 }
 
 /* Botones */
@@ -104,10 +120,27 @@ a {
   color: white;
 }
 
-.btn-hero {
-  background: $black;
+.btn-primary:active {
+  background: $primary-dark !important;
+  color: white !important;
+  box-shadow: inset 3px 6px 5px rgba(0, 0, 0, 0.25);
 }
 
-.btn-hero:hover {
-  background: $primary-dark;
+.btn-secondary {
+  background: transparent;
+  color: $primary-dark;
+  border: $primary-dark 1px solid;
+}
+
+.btn-secondary:hover {
+  background: $primary;
+  color: $primary-dark;
+  border: $primary-dark 1px solid;
+}
+
+.btn-secondary:active {
+  background: $primary !important;
+  color: $primary-dark !important;
+  border: 1px solid $primary-dark !important;
+  box-shadow: inset 3px 6px 5px rgba(0, 0, 0, 0.25);
 }
