@@ -97,16 +97,23 @@ footer {
     }
     li {
       list-style: none;
-/*       list-style-position: outside; */
+      /*       list-style-position: outside; */
       font-size: 12px;
       margin: 5px -30px;
     }
   }
 }
 
+.encabezado {
+  height: 30vh;
+  background-image: url(https://res.cloudinary.com/dpushmfs0/image/upload/v1730418711/enkoncreto/jue8xh0xd9otakj2esap.jpg);
+  color: white;
+}
+
 /* Textos */
 h3 {
   font-family: "Open Sans", sans-serif;
+  font-size: 20px;
   color: $primary-dark;
 }
 
@@ -207,6 +214,42 @@ a {
     background: $secondary-dark !important;
     color: white !important;
     box-shadow: inset 3px 6px 5px rgba(0, 0, 0, 0.25);
+  }
+}
+
+#buscador {
+  max-height: 44px;
+  input {
+    width: 300px;
+    background-color: transparent;
+    font-size: 14px;
+    border-radius: 5px 0px 0px 5px;
+    border: 1px solid $primary-dark;
+    padding: 7px;
+  }
+  .btn-input {
+    background-color: $primary-dark;
+    color: white;
+    border-radius: 0 5px 5px 0px;
+    border: 1px solid $primary-dark;
+    padding: 7px;
+    cursor: pointer;
+  }
+  .btn-input:hover {
+    background: $primary;
+    color: white;
+  }
+  .btn-input:active {
+    background: $primary-dark !important;
+    color: white !important;
+    box-shadow: inset 3px 6px 5px rgba(0, 0, 0, 0.25);
+  }
+}
+
+.btn-filtros {
+  padding: 8px;
+  img {
+    width: 20px;
   }
 }
 
