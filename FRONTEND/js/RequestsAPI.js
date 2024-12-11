@@ -27,7 +27,8 @@ const manejarErrores = (error = new Error("Error desconocido")) => {
 };
 
 export class RequestsAPI {
-  static urlBaseBackend = "http://localhost:3000";
+  static urlBaseBackend = "https://pw-enkoncreto.onrender.com"; // URL de la API
+  /* static urlBaseBackend = "http://localhost:3000"; */ // LOCALHOST
 
   // post /login
   static login(email, password) {
@@ -35,24 +36,12 @@ export class RequestsAPI {
 
     return fetch(obtenerUrl("login"), { method: "POST", body, headers })
       .then(procesarRespuesta)
-      /* .then((data) => {
-        if (data.session) {
-          sessionStorage.setItem("session", data.session);
-          localStorage.setItem("usuario", JSON.stringify(data.user));
-        }
-        return data;
-      }) */
       .catch(manejarErrores);
   }
 
   static logout() {
     return fetch(obtenerUrl("logout"), { method: "POST", headers })
       .then(procesarRespuesta)
-      /* .then((data) => {
-        sessionStorage.removeItem("session");
-        localStorage.removeItem("usuario");
-        return data;
-      }) */
       .catch(manejarErrores);
   }
 

@@ -8,7 +8,7 @@ const schemaProducto = new Schema({
   descripcion: String,
   img: String,
   stock: { type: Number, default: 0 },
-  destacado: { type: Boolean, default: false },
+  oferta: { type: Boolean, default: false },
   /* usuario: String, */
 });
 

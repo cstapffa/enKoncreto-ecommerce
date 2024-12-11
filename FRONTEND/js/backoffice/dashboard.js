@@ -4,19 +4,18 @@ import {
   imprimir,
   obtenerValorInput,
   /*   validarSesion,*/
-  validarAccesoBackoffice,
+/*   validarAccesoBackoffice, */
   eventoClickCerrarSesion, 
 } from "../utils/helpers.js";
 import { RequestsAPI } from "../RequestsAPI.js";
 
 /* validarSesion();*/
-validarAccesoBackoffice();
+/* validarAccesoBackoffice(); */
 eventoClickCerrarSesion(); 
 
 // CATALOGO DE PRODUCTOS
 // ------------------------------------------------------------------------------------------------------------------
 const cargarProductos = (data) => {
-  console.log("Datos recibidos:", data);
   imprimir("catalogo-pdtos-error-back", "");
 
   const listadoProductos = data
@@ -76,7 +75,7 @@ document.querySelector("#btn-nuevo-pdto").addEventListener("click", () => {
 
   RequestsAPI.postProducto(body)
     .then(() => {
-      document.location.replace("index.html");
+      document.location.replace("dashboard.html");
     })
     .catch((error) => {
       imprimir("nuevo-pdto-error", error);
@@ -87,7 +86,6 @@ document.querySelector("#btn-nuevo-pdto").addEventListener("click", () => {
 // CATALOGO DE TALLERES
 // ------------------------------------------------------------------------------------------------------------------
 const cargarTalleres = (data) => {
-  console.log("Datos recibidos:", data);
   imprimir("catalogo-talleres-error-back", "");
 
   const listadoTalleres = data

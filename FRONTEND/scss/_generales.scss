@@ -144,3 +144,43 @@ a {
   border: 1px solid $primary-dark !important;
   box-shadow: inset 3px 6px 5px rgba(0, 0, 0, 0.25);
 }
+
+/* Cards */
+.item-pdto {
+  position: relative;
+  background-color: $white;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+  .btn-fav{
+    display: none;
+    background-image: url(https://res.cloudinary.com/dpushmfs0/image/upload/v1733873275/fav_g7sl4v.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    background-color: $primary-dark;
+  }
+  img {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
+
+.item-pdto:hover {
+  box-shadow: 0px 1px 4px rgba(12, 12, 13, 0.1),
+    0px 1px 4px rgba(12, 12, 13, 0.05);
+  .btn-fav{
+    display: block;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  section {
+    padding: 20px 0;
+  }
+}

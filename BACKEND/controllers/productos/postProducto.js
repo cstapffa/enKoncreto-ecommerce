@@ -11,8 +11,8 @@ export const postProducto = async (req, res, next) => {
   nuevoProducto.precio = precio;
   nuevoProducto.descripcion = descripcion;
   nuevoProducto.img = img;
-  nuevoProducto.oferta = oferta;
   nuevoProducto.stock = stock;
+  nuevoProducto.oferta = oferta;
 
   nuevoProducto
     .save()
