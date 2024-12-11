@@ -27,8 +27,8 @@ const manejarErrores = (error = new Error("Error desconocido")) => {
 };
 
 export class RequestsAPI {
-  /* static urlBaseBackend = "https://pw-enkoncreto.onrender.com"; */ // URL de la API
-  static urlBaseBackend = "http://localhost:3000"; // LOCALHOST
+  static urlBaseBackend = "https://pw-enkoncreto.onrender.com"; // URL de la API
+  /* static urlBaseBackend = "http://localhost:3000"; */ // LOCALHOST
 
   // post /login
   static login(email, password) {
