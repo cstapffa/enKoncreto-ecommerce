@@ -51,19 +51,19 @@ export default class Taller {
   mostrarProximoTaller() {
     return `
       <div class="row featurette">
-      <article class="col-md-6 order-md-2">
+      <article class="col-md-6 order-1 order-md-2 text-center text-md-start">
         <h2 class="featurette-heading fw-normal lh-1">PRÓXIMO TALLER</h2>
         <h3>${this.nombre}</h3>
         <p>${this.descripcion}</p>
         <p>${this.fecha} a las ${this.hora}</p>
         <p>$${this.precio}</p>
-        <div class="d-flex">
+        <div class="d-flex flex-column flex-md-row">
           <button class="btn btn-primary">¡Inscribite YA!</button>
           <button class="btn btn-secondary">Ver Detalles</button>
         </div>
       </article>
-      <figure class="col-md-6 order-md-1 d-flex">
-        <img src="${this.img}" alt="${this.nombre}" title="${this.nombre}">
+      <figure class="d-none d-md-block col-md-6 order-2 order-md-1 d-flex">
+      <img src="${this.img}" alt="${this.nombre}" title="${this.nombre}">
       </figure>
     </div>
       `;
