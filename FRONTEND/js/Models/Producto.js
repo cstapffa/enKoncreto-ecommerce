@@ -31,7 +31,7 @@ export default class Producto {
   mostrarPdtoEnCatalogo() {
     return `
     <article id="${this.id}" class="col-5 col-md-3 item-pdto">
-          <div class="btn btn-fav agregar-fav"></div>
+          <div class="btn btn-fav agregar-fav d-none"></div>
           <img src="${this.img}" alt="${this.nombre}" title="${this.nombre}"/>
           <div>
             <h3>${this.nombre}</h3>

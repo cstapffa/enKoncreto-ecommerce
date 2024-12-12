@@ -5,13 +5,13 @@ import {
   obtenerValorInput,
   /*   validarSesion,*/
 /*   validarAccesoBackoffice, */
-  eventoClickCerrarSesion, 
+  eventoClickCerrarSesion,
 } from "../utils/helpers.js";
 import { RequestsAPI } from "../RequestsAPI.js";
 
 /* validarSesion();*/
 /* validarAccesoBackoffice(); */
-eventoClickCerrarSesion(); 
+eventoClickCerrarSesion();
 
 // CATALOGO DE PRODUCTOS
 // ------------------------------------------------------------------------------------------------------------------

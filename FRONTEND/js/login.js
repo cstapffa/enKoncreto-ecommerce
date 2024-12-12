@@ -7,7 +7,7 @@ import {
 import { RequestsAPI } from "./RequestsAPI.js";
 
 /* validarSesion(); */
-/* validarAccesoBackoffice(); */
+
 
 const botonLogin = document.querySelector("#form-login-submit");
 botonLogin.addEventListener("click", () => {
