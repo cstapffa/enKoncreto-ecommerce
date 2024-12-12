@@ -86,9 +86,11 @@ const actualizarImagenFavoritos = (productoId, btnFav) => {
   const favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
 
   if (favoritos.includes(productoId)) {
-    btnFav.src = "path/to/heart-filled-icon.png"; // imagen "rellena"
+    btnFav.src =
+      "https://res.cloudinary.com/dpushmfs0/image/upload/v1733879410/fav-fill_ssh5mh.png"; // imagen "rellena"
   } else {
-    btnFav.src = "path/to/heart-empty-icon.png"; // imagen "vacía"
+    btnFav.src =
+      "https://res.cloudinary.com/dpushmfs0/image/upload/v1733873275/fav_g7sl4v.png"; // imagen "vacía"
   }
 };
 
@@ -123,4 +125,31 @@ export const manejarEliminarFav = (productoId) => {
 
 export const obtenerFavoritos = () => {
   return JSON.parse(localStorage.getItem("favoritos")) || [];
+};
+
+// CARRITO
+export const agregarAlCarrito = (productoId) => {
+  const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+  const productoExistente = carrito.find((item) => item.id === productoId);
+
+  if (productoExistente) {
+    productoExistente.cantidad += 1;
+  } else {
+    carrito.push({ id: productoId, cantidad: 1 });
+  }
+
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+  console.log("Producto agregado al carrito:", productoId);
+};
+
+export const eliminarDelCarrito = (productoId) => {
+  let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+  carrito = carrito.filter((item) => item.id !== productoId);
+
+  localStorage.setItem("carrito", JSON.stringify(carrito));
+  console.log("Producto eliminado del carrito:", productoId);
+};
+
+export const obtenerCarrito = () => {
+  return JSON.parse(localStorage.getItem("carrito")) || [];
 };

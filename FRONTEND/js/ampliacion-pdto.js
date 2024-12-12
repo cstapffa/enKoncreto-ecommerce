@@ -1,5 +1,11 @@
 import Producto from "./Models/Producto.js";
-import { imprimir, validarSesion, manejarBtnFav, manejarAgregarFav } from "./utils/helpers.js";
+import {
+  imprimir,
+  validarSesion,
+  manejarBtnFav,
+  manejarAgregarFav,
+  agregarAlCarrito,
+} from "./utils/helpers.js";
 import { RequestsAPI } from "./RequestsAPI.js";
 
 const params = new URLSearchParams(window.location.search);
@@ -54,6 +60,13 @@ const cargarAmpliacionPdto = (producto) => {
   imprimir("ampliacion-pdto", pdto.mostrarAmpliacion());
 
   cargarProductosRelacionados(pdto.categoria, pdto.id);
+
+  document.querySelectorAll(".agregar-carrito").forEach((btnCarrito) => {
+    btnCarrito.addEventListener("click", (e) => {
+      const productoId = e.target.getAttribute("data-producto-id");
+      agregarAlCarrito(productoId); // Agregar el producto al carrito
+    });
+  });
 
   document.querySelectorAll(".item-pdto").forEach((itemCatalogoPdto) => {
     const productoId = itemCatalogoPdto.id;
