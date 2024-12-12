@@ -163,6 +163,34 @@
           <h1>Contacto</h1>
         </div>
       </div>
+
+      <!-- Formulario -->
+      <section id="formulario-contacto" class="container">
+        <h2>Contáctanos</h2>
+        <p>
+          Si tienes preguntas, comentarios, o deseas obtener más información sobre nuestros productos o talleres, no dudes en contactarnos. Estamos aquí para ayudarte.
+        </p>
+
+        <form action="#" method="get">
+          <div id="contact-form">
+            <label for="name">Nombre</label>
+            <input type="text" id="name" name="name" required />
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required />
+            <label for="phone">Telefono</label>
+            <input type="tel" id="phone" name="phone" required />
+            <label for="message">Descripción</label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              placeholder="Escribe tu mensaje aquí."
+            ></textarea>
+              <input class="btn btn-primary" type="submit" value="Enviar" />
+            </div>
+          </div>
+        </form>
+      </section>
     </main>
 
     <!-- footer -->
@@ -235,6 +263,6 @@
 
     <!-- JS -->
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./js/productos.js" type="module"></script>
+    <script src="./js/generales.js" type="module"></script>
   </body>
 </html>

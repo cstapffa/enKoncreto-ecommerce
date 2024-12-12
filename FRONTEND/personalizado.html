@@ -198,7 +198,7 @@
       </section>
 
       <!-- Formulario -->
-      <section id="formulario" class="container">
+      <section id="formulario-proyectos" class="container">
         <h2>PROYECTO PERSONALIZADO</h2>
         <p>
           Para solicitar un proyecto personalizado, por favor completa el
@@ -207,7 +207,35 @@
           preciso.
         </p>
 
-        <form action="#" method="get"></form>
+        <form action="#" method="get">
+          <div id="contact-form">
+            <label for="name">Nombre</label>
+            <input type="text" id="name" name="name" required />
+            <label for="surname">Apellido</label>
+            <input type="text" id="surname" name="surname" required />
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" required />
+            <label for="phone">Telefono</label>
+            <input type="tel" id="phone" name="phone" required />
+          </div>
+          <div id="project-form">
+            <label for="message">Descripción</label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              placeholder="Cuéntanos en detalle qué pieza te gustaría crear. Incluye dimensiones, materiales y acabados deseados, así como cualquier idea o requerimiento especial que tengas."
+            ></textarea>
+            <div class="d-flex justify-content-between align-items-end border-0">
+              <p class="small">
+                Después de recibir tu solicitud, nos pondremos en contacto
+                contigo en un plazo de 2-3 días hábiles para discutir los
+                detalles y proporcionarte un presupuesto estimado.
+              </p>
+              <input class="btn btn-primary" type="submit" value="Enviar" />
+            </div>
+          </div>
+        </form>
       </section>
 
       <!-- Reseñas -->
@@ -342,6 +370,6 @@
 
     <!-- JS -->
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./js/productos.js" type="module"></script>
+    <script src="./js/generales.js" type="module"></script>
   </body>
 </html>
