@@ -79,7 +79,7 @@ export default class Taller {
         <p>$${this.precio}</p>
         <div class="d-flex flex-column flex-md-row">
           <button class="btn btn-primary">¡Inscribite YA!</button>
-          <a id="/ampliacion-taller.html?id=${this.id}" class="btn btn-secondary">Ver Detalles</a>
+          <a href="/ampliacion-taller.html?id=${this.id}" class="btn btn-secondary">Ver Detalles</a>
         </div>
       </article>
       <figure class="d-none d-md-block col-md-6 order-2 order-md-1 d-flex">

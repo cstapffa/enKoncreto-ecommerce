@@ -60,11 +60,9 @@ const cargarProximoTaller = (data) => {
       proximoTaller.cupos,
       proximoTaller.disponibles
     );
-
     imprimir("proximo-taller", taller.mostrarProximoTaller());
   }
 };
-
 const mostrarErrorProximoTaller = (error) => {
   imprimir("proximo-taller", error);
 };
@@ -118,7 +116,6 @@ RequestsAPI.getProductos()
   .then((data) => {
     if (data.length === 0) {
       console.log("no hay productos que mostrar");
-      ("no hay productos que mostrar");
     } else {
       cargarProductosEnOferta(data);
     }
