@@ -12,7 +12,7 @@
       content="concreto, bazar, decoración, talleres, moldes, microcemento, concreto liviano, concreto macizo, muebles, mesadas, bachas, a medida"
     />
     <meta name="generator" content="Visual Studio Code" />
-    <title>Productos | EnKoncreto</title>
+    <title>Proyectos | EnKoncreto</title>
 
     <link
       rel="icon"
@@ -59,7 +59,9 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
               <ul class="navbar-nav me-auto mb-2 mb-md-0">
                 <li class="nav-item">
-                  <a class="nav-link btn btn-lg btn-header activo" href="#"
+                  <a
+                    class="nav-link btn btn-lg btn-header"
+                    href="productos.html"
                     >Productos</a
                   >
                 </li>
@@ -69,9 +71,7 @@
                   >
                 </li>
                 <li class="nav-item">
-                  <a
-                    class="nav-link btn btn-lg btn-header"
-                    href="personalizado.html"
+                  <a class="nav-link btn btn-lg btn-header activo" href="#"
                     >Proyectos</a
                   >
                 </li>
@@ -158,101 +158,117 @@
       <!-- Encabexado -->
       <div class="encabezado d-none d-md-flex align-items-center">
         <div class="container">
-          <h1>Productos</h1>
+          <h1>Proyectos</h1>
         </div>
       </div>
 
-      <!-- Catalogo -->
-      <section id="productos" class="container">
-        <div class="title d-flex justify-content-between align-items-baseline">
-          <h2 class="heading">Disponibles en Tienda</h2>
-          <div id="filtros" class="d-flex align-items-baseline">
-            <div id="buscador" class="d-md-flex d-none">
-              <input
-                type="search"
-                name="searchBar"
-                id="input-filtro-nombre-dsk"
-                placeholder="Buscar producto..."
-              />
-              <div class="btn-input">
-                <img
-                  src="https://res.cloudinary.com/dpushmfs0/image/upload/v1733774807/Magnifier-bco_l3yzxw.png"
-                  alt="buscador"
-                />
-              </div>
-            </div>
-            <div
-              id="btn-filtros-dsk"
-              class="btn btn-primary btn-filtros d-none d-md-block align-items-center"
-            >
-              Filtros
-              <img
-                src="https://res.cloudinary.com/dpushmfs0/image/upload/v1733941706/Filter_o7jfxy.png"
-                alt="filtros"
-              />
-            </div>
-            <form action="#" method="get" id="menu-filtros">
-              <fieldset class="d-md-none">
-                <legend>Buscar por Nombre</legend>
-                <input
-                type="search"
-                name="searchBarMbl"
-                id="input-filtro-nombre-mbl"
-                placeholder="Buscar producto..."
-              />
-              </fieldset>
-
-              <fieldset>
-                <legend>Categoría</legend>
-                <select id="input-filtro-categoria">
-                  <option value="">Todas las Categorías</option>
-                  <option value="deco">Decoración</option>
-                  <option value="moldes">Moldes</option>
-                  <option value="bachas">Bachas</option>
-                  <option value="juegos">Juegos de Mesa</option>
-                  <option value="ilu">Iluminación</option>
-                </select>
-              </fieldset>
-
-              <fieldset id="precio">
-                <legend>Precio</legend>
-                <div>
-                  <input type="text" id="txt_nroMin" placeholder="Desde" />
-
-                  <input type="text" id="txt_nroMax" placeholder="Hasta" />
-                  <input
-                    type="button"
-                    id="input-filtro-precio"
-                    class="btn btn-primary"
-                    value="OK"
-                  />
-                  <p id="msj_precio"></p>
-                </div>
-
-                <fieldset>
-                  <legend>Destacados</legend>
-                  <input type="checkbox" id="input-filtro-oferta" />
-                </fieldset>
-              </fieldset>
-            </form>
-            <div
-              id="btn-filtros-mbl"
-              class="btn btn-primary btn-filtros d-md-none"
-            >
-              <img
-                src="https://res.cloudinary.com/dpushmfs0/image/upload/v1733941706/Filter_o7jfxy.png"
-                alt="filtros"
-              />
-            </div>
-            <div id="menu-filtros-mbl" class="d-none menu-lado">
-              <p>Filtrar por</p>
-            </div>
-          </div>
+      <!-- Info -->
+      <section id="info-proyectos" class="container">
+        <div class="row featurette">
+          <article
+            class="col-md-6 order-1 order-md-2 text-center text-md-start"
+          >
+            <h2 class="featurette-heading fw-normal lh-1">
+              Proyectos Personalizados
+            </h2>
+            <h3 class="mt-3 mb-2">Concretamos Ideas</h3>
+            <p>
+              En enKoncreto, te ofrecemos la posibilidad de llevar tus ideas a
+              la realidad con nuestros proyectos personalizados en concreto. Ya
+              sea que estés buscando un mueble funcional, una pieza decorativa o
+              un diseño a medida, trabajamos contigo para crear algo único y
+              especial.
+            </p>
+            <p>
+              Desde la selección de materiales hasta el acabado final, nos
+              adaptamos a tus necesidades para asegurarnos de que tu proyecto
+              sea exactamente lo que imaginabas. Envía tu idea, y nosotros nos
+              encargamos del resto.
+            </p>
+            <a href="#formulario">¡Crea algo extraordinario con enKoncreto!</a>
+          </article>
+          <figure class="d-none d-md-block col-md-6 order-2 order-md-1 d-flex">
+            <img
+              src="https://res.cloudinary.com/dpushmfs0/image/upload/v1730418711/enkoncreto/jue8xh0xd9otakj2esap.jpg"
+              alt="proyecto"
+              title="proyecto"
+            />
+          </figure>
         </div>
-        <div
-          id="catalogo-pdtos"
-          class=" d-flex justify-content-around"
-        ></div>
+      </section>
+
+      <!-- Formulario -->
+      <section id="formulario" class="container">
+        <h2>PROYECTO PERSONALIZADO</h2>
+        <p>
+          Para solicitar un proyecto personalizado, por favor completa el
+          siguiente formulario con la mayor cantidad de detalles posible. Esto
+          nos ayudará a entender tus requerimientos y a ofrecerte un presupuesto
+          preciso.
+        </p>
+
+        <form action="#" method="get"></form>
+      </section>
+
+      <!-- Reseñas -->
+      <section id="testimonios-proyectos" class="container">
+        <h2>Opiniones y Reseñas de Clientes</h2>
+      </section>
+
+      <!-- Blog -->
+      <section id="blog-proyectos" class="container">
+        <div class="d-flex align-items-end">
+          <a
+            href="https://www.instagram.com/enkoncreto.uy/?hl=es"
+            class="btn btn-primary"
+            ><img
+              src="https://res.cloudinary.com/dpushmfs0/image/upload/v1733974899/Ig_bqabwo.png"
+              alt="Instagram"
+          /></a>
+          <h2>enkoncreto.uy</h2>
+        </div>
+        <p>
+          ¡Únete a nuestra comunidad creativa y encuentra inspiración para tu
+          próximo proyecto! Síguenos en Instagram.
+        </p>
+        <div class="blog row d-flex justify-content-around">
+          <a
+            href="https://www.instagram.com/enkoncreto.uy/?hl=es"
+            class="col-12 col-md-3 item-blog"
+          >
+            <img
+              src="https://res.cloudinary.com/dpushmfs0/image/upload/v1733790307/img_pp6bz0.png"
+              alt="posteo ig"
+            />
+          </a>
+          <a
+            href="https://www.instagram.com/enkoncreto.uy/?hl=es"
+            class="col-12 col-md-3 item-blog"
+          >
+            <img
+              src="https://res.cloudinary.com/dpushmfs0/image/upload/v1733790307/img_pp6bz0.png"
+              alt="posteo ig"
+            />
+          </a>
+          <a
+            href="https://www.instagram.com/enkoncreto.uy/?hl=es"
+            class="col-12 col-md-3 item-blog"
+          >
+            <img
+              src="https://res.cloudinary.com/dpushmfs0/image/upload/v1733790307/img_pp6bz0.png"
+              alt="posteo ig"
+            />
+          </a>
+          <a
+            href="https://www.instagram.com/enkoncreto.uy/?hl=es"
+            class="col-12 col-md-3 item-blog"
+          >
+            <img
+              src="https://res.cloudinary.com/dpushmfs0/image/upload/v1733790307/img_pp6bz0.png"
+              alt="posteo ig"
+            />
+          </a>
+        </div>
       </section>
     </main>
 

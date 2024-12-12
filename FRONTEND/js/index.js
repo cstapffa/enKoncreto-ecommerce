@@ -3,8 +3,7 @@ import Taller from "./Models/Taller.js";
 import {
   ocultar,
   mostrar,
-  imprimir /*  
-  obtenerValorInput, */,
+  imprimir,
   /*   validarSesion,*/
   eventoClickCerrarSesion,
 } from "./utils/helpers.js";
@@ -80,16 +79,12 @@ RequestsAPI.getTalleres()
   })
   .catch(mostrarErrorProximoTaller);
 
-/* PDTOS OFERTA */
 const cargarProductosEnOferta = (data) => {
-  // Limpia el contenedor de ofertas antes de insertar contenido nuevo
   imprimir("ofertas", "");
 
-  // Filtra los productos en oferta y genera el HTML
   const productosEnOferta = data
-    .filter((producto) => producto.oferta) // Filtrar productos en oferta
+    .filter((producto) => producto.oferta)
     .map((producto) => {
-      // Crear una instancia de Producto y generar HTML
       const nuevoProducto = new Producto(
         producto.id,
         producto.nombre,
@@ -100,12 +95,19 @@ const cargarProductosEnOferta = (data) => {
         producto.stock,
         producto.oferta
       );
-      return nuevoProducto.mostrarPdtoEnCatalogo(); // Retorna el HTML
+      return nuevoProducto.mostrarPdtoEnCatalogo();
     })
-    .join(""); // Combina todos los strings en uno solo
+    .join("");
 
-  // Inserta el HTML en el contenedor
   imprimir("ofertas", productosEnOferta);
+
+  document.querySelectorAll(".item-pdto").forEach((itemCatalogoPdto) => {
+    itemCatalogoPdto.addEventListener("click", () => {
+      document.location.replace(
+        `ampliacion-pdto.html?id=${itemCatalogoPdto.id}`
+      );
+    });
+  });
 };
 
 const mostrarErrorPdtosOferta = (error) => {

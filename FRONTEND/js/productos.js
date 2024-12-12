@@ -41,10 +41,17 @@ document.querySelector("#profileIcon").addEventListener("click", () => {
   }
 });
 document.querySelector("#btn-filtros-dsk").addEventListener("click", () => {
-  if (document.querySelector("#menu-filtros-dsk").style.display === "none") {
-    mostrar("#menu-filtros-dsk");
+  if (document.querySelector("#menu-filtros").style.display === "none") {
+    mostrar("#menu-filtros");
   } else {
-    ocultar("#menu-filtros-dsk");
+    ocultar("#menu-filtros");
+  }
+});
+document.querySelector("#btn-filtros-mbl").addEventListener("click", () => {
+  if (document.querySelector("#menu-filtros").style.display === "none") {
+    mostrar("#menu-filtros");
+  } else {
+    ocultar("#menu-filtros");
   }
 });
 
@@ -93,18 +100,28 @@ document
       .catch(mostrarErrorPdtos);
   });
 
+document
+  .querySelector("#input-filtro-nombre-mbl")
+  .addEventListener("input", () => {
+    const filtroNombre = obtenerValorInput("input-filtro-nombre-mbl");
+
+    RequestsAPI.getProductos({ filtroNombre })
+      .then(cargarProductos)
+      .catch(mostrarErrorPdtos);
+  });
+
 const urlParams = new URLSearchParams(window.location.search);
 const filtroCategoria = urlParams.get("categoria");
 
 if (filtroCategoria) {
-  document.querySelector("#input-filtro-categoria-dsk").value = filtroCategoria;
+  document.querySelector("#input-filtro-categoria").value = filtroCategoria;
 
   RequestsAPI.getProductos({ filtroCategoria })
     .then(cargarProductos)
     .catch(mostrarErrorPdtos);
 }
 
-const selectorCategoria = document.querySelector("#input-filtro-categoria-dsk");
+const selectorCategoria = document.querySelector("#input-filtro-categoria");
 selectorCategoria.addEventListener("change", () => {
   const nuevaCategoria = selectorCategoria.value;
 
@@ -114,11 +131,9 @@ selectorCategoria.addEventListener("change", () => {
 });
 
 document
-  .querySelector("#input-filtro-oferta-dsk")
+  .querySelector("#input-filtro-oferta")
   .addEventListener("change", () => {
-    const filtroOferta = document.querySelector(
-      "#input-filtro-oferta-dsk"
-    ).checked;
+    const filtroOferta = document.querySelector("#input-filtro-oferta").checked;
 
     const filtros = filtroOferta ? { filtroOferta } : {}; // Si no está activo, no agrega filtro de oferta
 
@@ -127,20 +142,18 @@ document
       .catch(mostrarErrorPdtos);
   });
 
-document
-  .querySelector("#input-filtro-precio-dsk")
-  .addEventListener("click", () => {
-    const precioMin = obtenerValorInput("txt_nroMin");
-    const precioMax = obtenerValorInput("txt_nroMax");
+document.querySelector("#input-filtro-precio").addEventListener("click", () => {
+  const precioMin = obtenerValorInput("txt_nroMin");
+  const precioMax = obtenerValorInput("txt_nroMax");
 
-    if (!precioMin && !precioMax) {
-      console.log("No hay rango de precios");
-    }
+  if (!precioMin && !precioMax) {
+    console.log("No hay rango de precios");
+  }
 
-    RequestsAPI.getProductos({ precioMin, precioMax })
-      .then(cargarProductos)
-      .catch(mostrarErrorPdtos);
-  });
+  RequestsAPI.getProductos({ precioMin, precioMax })
+    .then(cargarProductos)
+    .catch(mostrarErrorPdtos);
+});
 
 RequestsAPI.getProductos()
   .then((data) => {

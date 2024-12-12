@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  transition: all 0.5s ease;
 }
 
 html {
@@ -68,6 +69,7 @@ header {
 
 main {
   margin-top: 60px;
+  min-height: 100vh;
 }
 
 section {
@@ -108,6 +110,9 @@ footer {
   height: 30vh;
   background-image: url(https://res.cloudinary.com/dpushmfs0/image/upload/v1730418711/enkoncreto/jue8xh0xd9otakj2esap.jpg);
   color: white;
+  h1 {
+    font-size: 3.5rem;
+  }
 }
 
 /* Textos */
@@ -136,11 +141,17 @@ a {
   text-transform: uppercase;
   color: $black;
   border-radius: 0px;
-  padding: 2px 0;
+  padding: 2px 0 7px 0;
+  border-bottom: 2px solid transparent;
 }
 
 .btn-header:hover {
-  padding-bottom: 0px;
+  padding-bottom: 7px;
+  border-bottom: 2px solid $black;
+}
+
+.activo {
+  padding-bottom: 7px;
   border-bottom: 2px solid $black;
 }
 
@@ -289,6 +300,102 @@ a {
 
 .item-taller {
   position: relative;
+  border-radius: 15px;
+  padding: 0;
+  margin: 0 10px;
+  .hoverDiv {
+    display: none;
+    background-color: white;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    .arrow {
+      width: 15px;
+    }
+  }
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px 15px 0 0;
+  }
+  .btn {
+    z-index: 9999;
+  }
+  .arrow {
+    width: 15px;
+    rotate: 180deg;
+  }
+}
+
+.item-taller:hover {
+  box-shadow: 0px 1px 4px rgba(12, 12, 13, 0.1),
+    0px 1px 4px rgba(12, 12, 13, 0.05);
+  .hoverDiv {
+    display: block;
+  }
+}
+
+/* Detallitos */
+#filtros {
+  position: relative;
+  #menu-filtros {
+    z-index: 9999;
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    width: 300px;
+    border-radius: 7px 0 7px 7px;
+    padding: 20px;
+    legend {
+      font-size: 18px;
+      font-family: abel;
+      margin-top: 10px;
+      margin-bottom: 3px;
+    }
+    div {
+      border: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      width: 220px;
+    }
+    input,
+    select {
+      border: 1px solid $primary-dark;
+      border-radius: 5px;
+      margin: 5px 0 15px;
+      padding: 5px;
+      font-size: 14px;
+    }
+    input {
+      max-width: 80px;
+    }
+    select,
+    #input-filtro-nombre-mbl {
+      width: 210px;
+    }
+  }
+}
+
+#info-talleres,
+#info-proyectos {
+  img {
+    width: 100%;
+    border-radius: 20px;
+  }
+}
+
+#blog-talleres,
+#blog-proyectos {
+  .btn {
+    padding: 7px;
+  }
 }
 
 @media screen and (max-width: 992px) {
@@ -305,6 +412,11 @@ a {
     }
   }
 
+  .item-taller {
+    box-shadow: 0px 1px 4px rgba(12, 12, 13, 0.1),
+      0px 1px 4px rgba(12, 12, 13, 0.05);
+    margin: 10px 0;
+  }
   .logo-footer {
     img {
       width: 100px;

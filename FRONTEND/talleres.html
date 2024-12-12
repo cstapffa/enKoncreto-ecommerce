@@ -12,7 +12,7 @@
       content="concreto, bazar, decoración, talleres, moldes, microcemento, concreto liviano, concreto macizo, muebles, mesadas, bachas, a medida"
     />
     <meta name="generator" content="Visual Studio Code" />
-    <title>Productos | EnKoncreto</title>
+    <title>Talleres | EnKoncreto</title>
 
     <link
       rel="icon"
@@ -59,12 +59,14 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
               <ul class="navbar-nav me-auto mb-2 mb-md-0">
                 <li class="nav-item">
-                  <a class="nav-link btn btn-lg btn-header activo" href="#"
+                  <a
+                    class="nav-link btn btn-lg btn-header"
+                    href="productos.html"
                     >Productos</a
                   >
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link btn btn-lg btn-header" href="talleres.html"
+                  <a class="nav-link btn btn-lg btn-header activo" href="#"
                     >Talleres</a
                   >
                 </li>
@@ -158,101 +160,116 @@
       <!-- Encabexado -->
       <div class="encabezado d-none d-md-flex align-items-center">
         <div class="container">
-          <h1>Productos</h1>
+          <h1>Talleres</h1>
         </div>
       </div>
 
-      <!-- Catalogo -->
-      <section id="productos" class="container">
-        <div class="title d-flex justify-content-between align-items-baseline">
-          <h2 class="heading">Disponibles en Tienda</h2>
-          <div id="filtros" class="d-flex align-items-baseline">
-            <div id="buscador" class="d-md-flex d-none">
-              <input
-                type="search"
-                name="searchBar"
-                id="input-filtro-nombre-dsk"
-                placeholder="Buscar producto..."
-              />
-              <div class="btn-input">
-                <img
-                  src="https://res.cloudinary.com/dpushmfs0/image/upload/v1733774807/Magnifier-bco_l3yzxw.png"
-                  alt="buscador"
-                />
-              </div>
-            </div>
-            <div
-              id="btn-filtros-dsk"
-              class="btn btn-primary btn-filtros d-none d-md-block align-items-center"
-            >
-              Filtros
-              <img
-                src="https://res.cloudinary.com/dpushmfs0/image/upload/v1733941706/Filter_o7jfxy.png"
-                alt="filtros"
-              />
-            </div>
-            <form action="#" method="get" id="menu-filtros">
-              <fieldset class="d-md-none">
-                <legend>Buscar por Nombre</legend>
-                <input
-                type="search"
-                name="searchBarMbl"
-                id="input-filtro-nombre-mbl"
-                placeholder="Buscar producto..."
-              />
-              </fieldset>
-
-              <fieldset>
-                <legend>Categoría</legend>
-                <select id="input-filtro-categoria">
-                  <option value="">Todas las Categorías</option>
-                  <option value="deco">Decoración</option>
-                  <option value="moldes">Moldes</option>
-                  <option value="bachas">Bachas</option>
-                  <option value="juegos">Juegos de Mesa</option>
-                  <option value="ilu">Iluminación</option>
-                </select>
-              </fieldset>
-
-              <fieldset id="precio">
-                <legend>Precio</legend>
-                <div>
-                  <input type="text" id="txt_nroMin" placeholder="Desde" />
-
-                  <input type="text" id="txt_nroMax" placeholder="Hasta" />
-                  <input
-                    type="button"
-                    id="input-filtro-precio"
-                    class="btn btn-primary"
-                    value="OK"
-                  />
-                  <p id="msj_precio"></p>
-                </div>
-
-                <fieldset>
-                  <legend>Destacados</legend>
-                  <input type="checkbox" id="input-filtro-oferta" />
-                </fieldset>
-              </fieldset>
-            </form>
-            <div
-              id="btn-filtros-mbl"
-              class="btn btn-primary btn-filtros d-md-none"
-            >
-              <img
-                src="https://res.cloudinary.com/dpushmfs0/image/upload/v1733941706/Filter_o7jfxy.png"
-                alt="filtros"
-              />
-            </div>
-            <div id="menu-filtros-mbl" class="d-none menu-lado">
-              <p>Filtrar por</p>
-            </div>
-          </div>
+      <!-- Info -->
+      <section id="info-talleres" class="container">
+        <div class="row featurette">
+          <article
+            class="col-md-6 order-1 order-md-2 text-center text-md-start"
+          >
+            <h2 class="featurette-heading fw-normal lh-1">
+              Talleres de Creación en Concreto
+            </h2>
+            <h3 class="mt-3 mb-2">Aprende, Crea y Personaliza</h3>
+            <p>
+              En EnKoncreto ofrecemos talleres prácticos donde puedes aprender a
+              trabajar con concreto y crear tus propias piezas decorativas. Ya
+              sea que seas un principiante o un entusiasta del DIY, nuestros
+              talleres te enseñarán técnicas esenciales para dar forma a
+              macetas, lámparas y otros productos únicos.
+            </p>
+            <p>
+              Con todos los materiales incluidos, te brindamos una experiencia
+              completa y educativa. Ven a explorar tu creatividad en un ambiente
+              relajado, donde el diseño sostenible y la artesanía se encuentran.
+            </p>
+            <a href="#catalogo">¡Inscríbete hoy, los cupos son limitados!</a>
+          </article>
+          <figure class="d-none d-md-block col-md-6 order-2 order-md-1 d-flex">
+            <img
+              src="https://res.cloudinary.com/dpushmfs0/image/upload/v1730418711/enkoncreto/jue8xh0xd9otakj2esap.jpg"
+              alt="taller"
+              title="taller"
+            />
+          </figure>
         </div>
-        <div
-          id="catalogo-pdtos"
-          class=" d-flex justify-content-around"
-        ></div>
+      </section>
+
+      <!-- Catalogo -->
+      <section id="catalogo" class="container">
+        <h2>Creamos para Inspirar</h2>
+        <p>
+          En nuestro taller, creemos que cada proyecto tiene el potencial de
+          marcar una diferencia. Desde los detalles más pequeños hasta las ideas
+          más audaces, estamos comprometidos con crear diseños que inspiren,
+          conecten y transformen.
+        </p>
+
+        <div class="row" id="catalogo-talleres"></div>
+      </section>
+
+      <!-- Reseñas -->
+      <section id="testimonios-talleres" class="container">
+        <h2>Opiniones y Reseñas de Clientes</h2>
+      </section>
+
+      <!-- Blog -->
+      <section id="blog-talleres" class="container">
+        <div class="d-flex align-items-end">
+          <a
+            href="https://www.instagram.com/enkoncreto.uy/?hl=es"
+            class="btn btn-primary"
+            ><img
+              src="https://res.cloudinary.com/dpushmfs0/image/upload/v1733974899/Ig_bqabwo.png"
+              alt="Instagram"
+          /></a>
+          <h2>enkoncreto.uy</h2>
+        </div>
+        <p>
+          Comparte este taller con tus amigos en redes sociales y aprende a
+          crear juntos. Síguenos en Instagram.
+        </p>
+        <div class="blog row d-flex justify-content-around">
+          <a
+            href="https://www.instagram.com/enkoncreto.uy/?hl=es"
+            class="col-12 col-md-3 item-blog"
+          >
+            <img
+              src="https://res.cloudinary.com/dpushmfs0/image/upload/v1733790307/img_pp6bz0.png"
+              alt="posteo ig"
+            />
+          </a>
+          <a
+            href="https://www.instagram.com/enkoncreto.uy/?hl=es"
+            class="col-12 col-md-3 item-blog"
+          >
+            <img
+              src="https://res.cloudinary.com/dpushmfs0/image/upload/v1733790307/img_pp6bz0.png"
+              alt="posteo ig"
+            />
+          </a>
+          <a
+            href="https://www.instagram.com/enkoncreto.uy/?hl=es"
+            class="col-12 col-md-3 item-blog"
+          >
+            <img
+              src="https://res.cloudinary.com/dpushmfs0/image/upload/v1733790307/img_pp6bz0.png"
+              alt="posteo ig"
+            />
+          </a>
+          <a
+            href="https://www.instagram.com/enkoncreto.uy/?hl=es"
+            class="col-12 col-md-3 item-blog"
+          >
+            <img
+              src="https://res.cloudinary.com/dpushmfs0/image/upload/v1733790307/img_pp6bz0.png"
+              alt="posteo ig"
+            />
+          </a>
+        </div>
       </section>
     </main>
 
@@ -326,6 +343,6 @@
 
     <!-- JS -->
     <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./js/productos.js" type="module"></script>
+    <script src="./js/talleres.js" type="module"></script>
   </body>
 </html>

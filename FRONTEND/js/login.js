@@ -1,13 +1,13 @@
 import {
   obtenerValorInput,
   imprimir,
-  /*   validarSesion, */
-  validarAccesoBackoffice,
+  /*   validarSesion, 
+  validarAccesoBackoffice,*/
 } from "./utils/helpers.js";
 import { RequestsAPI } from "./RequestsAPI.js";
 
 /* validarSesion(); */
-validarAccesoBackoffice();
+/* validarAccesoBackoffice(); */
 
 const botonLogin = document.querySelector("#form-login-submit");
 botonLogin.addEventListener("click", () => {
