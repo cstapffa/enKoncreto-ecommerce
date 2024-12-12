@@ -88,4 +88,29 @@ export default class Taller {
     </div>
       `;
   }
+
+  mostrarAmpliacion() {
+    return `<div id="${this.id}"  class="row">
+          <figure class="col-12 col-md-6">
+            <img
+              class="bg-light img-fluid"
+              src="${this.img}"
+              alt="${this.nombre}" title="${this.nombre}"
+            />
+          </figure>
+          <article class="col-12 col-md-6 d-flex flex-column justify-content-between">
+            <div class="descripcion-ampliacion">
+              <h1>${this.nombre}</h1>
+              <p>El próximo taller de ${this.nombre} se realizará el ${this.fecha} a las ${this.hora} hrs.</p>
+              <h2>Descripción</h2>
+              <p>${this.descripcion}</p>
+              <h3 class="text-black">$${this.precio}</h3>
+            </div>
+            <div class="botones-ampliacion">
+              <button class="btn btn-primary solicitar-inscripcion">¡Inscribite Ahora!</button>
+              <button class="btn btn-secondary">Añadir un Recordatorio</button>
+            </div>
+          </article>
+        </div>`;
+  }
 }

@@ -191,6 +191,12 @@ a {
   box-shadow: inset 3px 6px 5px rgba(0, 0, 0, 0.25);
 }
 
+.botones-ampliacion {
+  .btn {
+    width: 100%;
+    margin: 5px;
+  }
+}
 .newsletter {
   input {
     background-color: transparent;
@@ -398,6 +404,16 @@ a {
   }
 }
 
+#formulario-contacto {
+  width: 30%;
+}
+
+#mapa {
+  width: 67%;
+  iframe{
+    border-radius: 15px;
+  }
+}
 
 @media screen and (max-width: 992px) {
   section {
