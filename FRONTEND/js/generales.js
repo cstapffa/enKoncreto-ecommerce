@@ -1,11 +1,11 @@
 import {
   ocultar,
   mostrar,
-  /*   validarSesion,*/
+  validarSesion,
   eventoClickCerrarSesion,
 } from "./utils/helpers.js";
 
-/* validarSesion();*/
+validarSesion();
 eventoClickCerrarSesion();
 
 document.querySelector("#searchIcon").addEventListener("click", () => {
@@ -16,18 +16,24 @@ document.querySelector("#searchIcon").addEventListener("click", () => {
   }
 });
 document.querySelector("#heartIcon").addEventListener("click", () => {
-  if (document.querySelector("#menu-favoritos").style.display === "none") {
-    mostrar("#menu-favoritos");
-  } else {
-    ocultar("#menu-favoritos");
-  }
+  validarSesion("Debes iniciar sesión para ver los favoritos.", () => {
+    const menuFavoritos = document.querySelector("#menu-favoritos");
+    if (menuFavoritos.style.display === "none") {
+      mostrar("#menu-favoritos");
+    } else {
+      ocultar("#menu-favoritos");
+    }
+  });
 });
 document.querySelector("#cartIcon").addEventListener("click", () => {
-  if (document.querySelector("#menu-carrito").style.display === "none") {
-    mostrar("#menu-carrito");
-  } else {
-    ocultar("#menu-carrito");
-  }
+  validarSesion("Debes iniciar sesión para ver tu carrito.", () => {
+    const menuCarrito = document.querySelector("#menu-carrito");
+    if (menuCarrito.style.display === "none") {
+      mostrar("#menu-carrito");
+    } else {
+      ocultar("#menu-carrito");
+    }
+  });
 });
 document.querySelector("#profileIcon").addEventListener("click", () => {
   if (document.querySelector("#menu-perfil").style.display === "none") {

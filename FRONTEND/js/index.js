@@ -6,6 +6,7 @@ import {
   imprimir,
   validarSesion,
   eventoClickCerrarSesion,
+  manejarBtnFav,
 } from "./utils/helpers.js";
 import { RequestsAPI } from "./RequestsAPI.js";
 
@@ -18,13 +19,6 @@ document.querySelector("#searchIcon").addEventListener("click", () => {
     ocultar("#menu-buscador");
   }
 });
-/* document.querySelector("#heartIcon").addEventListener("click", () => {
-  if (document.querySelector("#menu-favoritos").style.display === "none") {
-    mostrar("#menu-favoritos");
-  } else {
-    ocultar("#menu-favoritos");
-  }
-}); */
 document.querySelector("#heartIcon").addEventListener("click", () => {
   validarSesion("Debes iniciar sesión para ver los favoritos.", () => {
     const menuFavoritos = document.querySelector("#menu-favoritos");
@@ -116,6 +110,14 @@ const cargarProductosEnOferta = (data) => {
       document.location.replace(
         `ampliacion-pdto.html?id=${itemCatalogoPdto.id}`
       );
+    });
+  });
+
+  document.querySelectorAll(".item-pdto").forEach((itemCatalogoPdto) => {
+    const productoId = itemCatalogoPdto.id;
+
+    itemCatalogoPdto.querySelector(".btn-fav").addEventListener("click", () => {
+      manejarBtnFav(productoId, itemCatalogoPdto.querySelector(".btn-fav"));
     });
   });
 };

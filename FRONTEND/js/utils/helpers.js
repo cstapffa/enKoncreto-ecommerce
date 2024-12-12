@@ -60,3 +60,67 @@ export const eventoClickCerrarSesion = () => {
     });
   });
 };
+
+// FAVORITOS
+const agregarAFavoritos = (productoId) => {
+  const favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+
+  if (!favoritos.includes(productoId)) {
+    favoritos.push(productoId);
+    localStorage.setItem("favoritos", JSON.stringify(favoritos));
+    console.log("Producto agregado a favoritos:", productoId);
+  } else {
+    console.log("Este producto ya está en favoritos.");
+  }
+};
+
+const eliminarDeFavoritos = (productoId) => {
+  let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+
+  favoritos = favoritos.filter((id) => id !== productoId);
+  localStorage.setItem("favoritos", JSON.stringify(favoritos));
+  console.log("Producto eliminado de favoritos:", productoId);
+};
+
+const actualizarImagenFavoritos = (productoId, btnFav) => {
+  const favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+
+  if (favoritos.includes(productoId)) {
+    btnFav.src = "path/to/heart-filled-icon.png"; // imagen "rellena"
+  } else {
+    btnFav.src = "path/to/heart-empty-icon.png"; // imagen "vacía"
+  }
+};
+
+/* btn-fav */
+export const manejarBtnFav = (productoId, btnFav) => {
+  validarSesion(() => {
+    const favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+
+    if (favoritos.includes(productoId)) {
+      eliminarDeFavoritos(productoId);
+      actualizarImagenFavoritos(productoId, btnFav); // vacia
+    } else {
+      agregarAFavoritos(productoId);
+      actualizarImagenFavoritos(productoId, btnFav); // rellena
+    }
+  });
+};
+
+/* agregar-fav */
+export const manejarAgregarFav = (productoId) => {
+  validarSesion(() => {
+    agregarAFavoritos(productoId);
+    console.log("Producto agregado a favoritos:", productoId);
+  });
+};
+
+/* eliminar-fav */
+export const manejarEliminarFav = (productoId) => {
+  eliminarDeFavoritos(productoId);
+  console.log("Producto eliminado de favoritos:", productoId);
+};
+
+export const obtenerFavoritos = () => {
+  return JSON.parse(localStorage.getItem("favoritos")) || [];
+};
