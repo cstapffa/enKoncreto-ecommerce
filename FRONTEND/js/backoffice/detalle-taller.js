@@ -3,10 +3,12 @@ import { RequestsAPI } from "../RequestsAPI.js";
 import {
   imprimir,
   obtenerValorInput,
-  validarSesion,
+  validarAccesoBackoffice,
+/*   validarSesion, */
 } from "../utils/helpers.js";
 
 /* validarSesion(); */
+validarAccesoBackoffice();
 
 const params = new URLSearchParams(window.location.search);
 const idTaller = params.get("id");

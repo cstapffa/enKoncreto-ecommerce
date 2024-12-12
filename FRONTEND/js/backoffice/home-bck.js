@@ -4,13 +4,15 @@ import {
   imprimir,
   obtenerValorInput,
   /*   validarSesion,*/
-/*   validarAccesoBackoffice, */
+  validarAccesoAdmin,
   eventoClickCerrarSesion,
 } from "../utils/helpers.js";
 import { RequestsAPI } from "../RequestsAPI.js";
 
 /* validarSesion();*/
-/* validarAccesoBackoffice(); */
+document.addEventListener("DOMContentLoaded", () => {
+  validarAccesoAdmin();
+});
 eventoClickCerrarSesion();
 
 // CATALOGO DE PRODUCTOS

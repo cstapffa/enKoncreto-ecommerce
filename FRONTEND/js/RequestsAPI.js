@@ -13,10 +13,10 @@ if (token) {
 
 const procesarRespuesta = (res) => {
   return res.json().then((data) => {
+    console.log("Respuesta de la API:", data);
     if (data.error) {
       throw new Error(data?.error);
     }
-
     return data;
   });
 };
@@ -46,7 +46,7 @@ export class RequestsAPI {
   }
 
   // post /registrar
-  static register(body) {
+  static registrar(body) {
     return fetch(obtenerUrl("registrar"), { method: "POST", body, headers })
       .then(procesarRespuesta)
       .catch(manejarErrores);

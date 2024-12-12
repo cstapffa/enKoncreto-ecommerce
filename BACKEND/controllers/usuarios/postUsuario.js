@@ -5,7 +5,7 @@ export const postUsuario = async (req, res, next) => {
   const { nombre, apellido, email, password } = req.body;
 
   try {
-    const usuarioExistente = await ModeloUsuario.findOne({ user: email });
+    const usuarioExistente = await ModeloUsuario.findOne({ email });
 
     if (usuarioExistente) {
       throw new Error("El correo ingresado ya tiene una cuenta asociada.");

@@ -1,13 +1,5 @@
-import {
-  /* validarSesion, */
-  validarAccesoBackoffice,
-  obtenerValorInput,
-  imprimir,
-} from "./utils/helpers.js";
+import { obtenerValorInput, imprimir } from "./utils/helpers.js";
 import { RequestsAPI } from "./RequestsAPI.js";
-
-/* validarSesion(); */
-validarAccesoBackoffice();
 
 document
   .querySelector("#boton-register-submit")
@@ -17,7 +9,7 @@ document
     const apellido = obtenerValorInput("form-register-apellido");
     console.log("apellido", apellido);
     const email = obtenerValorInput("form-register-email");
-    console.log("user", email);
+    console.log("email", email);
     const password = obtenerValorInput("form-register-password");
     console.log("password", password);
 
@@ -28,9 +20,10 @@ document
 
     const body = JSON.stringify({ nombre, apellido, email, password });
 
-    RequestsAPI.register(body)
+    RequestsAPI.registrar(body)
       .then(() => {
-        document.location.replace("login.html");
+        alert("Usuario registrado correctamente.");
+        document.location.replace("/login.html");
       })
       .catch((error) => {
         imprimir("form-register-error", error);

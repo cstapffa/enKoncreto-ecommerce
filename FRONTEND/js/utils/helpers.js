@@ -26,55 +26,37 @@ export const imprimir = (elemento, contenido) => {
   }
 };
 
-/* export const validarSesion = () => {
-  // obtenemos el valor de la sesion del sessionStorage
-  const usuarioLogueado = sessionStorage.getItem("session");
-  // verificamos si estamos en la pagina de login o register
-  const estaEnLogin = document.location.pathname.includes("login.html");
-  const estaEnRegister = document.location.pathname.includes("register.html");
-  const estaEnPaginaPublica = estaEnLogin || estaEnRegister;
+export const validarSesion = (mensajeError, callback) => {
+  const session = sessionStorage.getItem("session");
 
-  // si el usuario esta logueado y esta en una pagina publica, lo redirigimos al index
-  if (usuarioLogueado) {
-    if (estaEnPaginaPublica) {
-      document.location.replace("index.html");
-    }
+  if (!session) {
+    alert(mensajeError);
+    document.location.replace("/login.html");
   } else {
-    // si no estas logueado,y esta en una pagina restringida, redirigimos al login
-    if (!estaEnPaginaPublica) {
-      document.location.replace("login.html");
-    }
+    callback();
   }
-}; */
+};
 
-export const validarAccesoBackoffice = () => {
-  const usuarioLogueado = JSON.parse(sessionStorage.getItem("usuario"));
-  const usuarioEsAdmin = usuarioLogueado?.admin;
-  const estaEnBackoffice = window.location.pathname.includes("/backoffice/");
+export const validarAccesoAdmin = () => {
+  const session = sessionStorage.getItem("session");
+  const usuario = JSON.parse(localStorage.getItem("usuario"));
+  console.log("Usuario almacenado:", usuario);
 
-  if (estaEnBackoffice) {
-    if (!usuarioLogueado) {
-      alert("Debes iniciar sesión para acceder al backoffice.");
-      document.location.replace("/login.html");
-    } else if (!usuarioEsAdmin) {
-      alert(
-        "ACCESO DENEGADO. Solo los administradores pueden acceder al backoffice."
-      );
-      document.location.replace("/index.html");
-    }
+  if (!session || !usuario || !usuario.admin) {
+    alert("Acceso denegado. Debes iniciar sesión como administrador.");
+    document.location.replace("/login.html");
+  } else {
+    console.log("Acceso autorizado para administradores.");
   }
 };
 
 export const eventoClickCerrarSesion = () => {
   document.querySelector("#boton-logout").addEventListener("click", () => {
     sessionStorage.removeItem("session");
-    sessionStorage.removeItem("usuario");
-    RequestsAPI.logout()
-      .then(() => {
-        document.location.replace("index.html");
-      })
-      .catch((error) => {
-        alert(error);
-      });
+    localStorage.removeItem("usuario");
+    RequestsAPI.logout().then(() => {
+      alert("Sesión cerrada correctamente.");
+      document.location.replace("/index.html");
+    });
   });
 };
