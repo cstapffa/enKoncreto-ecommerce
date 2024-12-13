@@ -5,7 +5,6 @@ import {
   eventoClickCerrarSesion,
 } from "./utils/helpers.js";
 
-validarSesion();
 eventoClickCerrarSesion();
 
 document.querySelector("#searchIcon").addEventListener("click", () => {
